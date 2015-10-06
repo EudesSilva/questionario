@@ -1,4 +1,4 @@
-# questionario
+# questionário
 
 
 BANCO:
@@ -21,7 +21,7 @@ que o Gmail.
 No mesmo pacote na classe SendMailStart configure o seu email de remetente;
 
 OBS::  
-Ao fazer os tests é necessário desabilitar o seu antivirus, e seu firewall.
+Ao fazer os testes é necessário desabilitar o seu antivirus, e seu firewall.
 Usando AVAST é gerado um erro .
 
 
@@ -32,7 +32,7 @@ Utilizado Tomcat 7.0.41  ele tem que ser configurado para a porta 8084
 APLICAÇÃO: Para utilizar a aplicação é necessário fazer o login com usuario ( admin ) e senha ( 123 )
 Depois Crie um questionário com seu titulo e  suas perguntas.
 
-Depois faça o envio do questionárioque deseja para (apenas 1 email e cada vez).
+Depois faça o envio do questionário que deseja para (apenas 1 email e cada vez).
 
 
 Acesse o email, e responda e questionário , depois tente responder novamente.
