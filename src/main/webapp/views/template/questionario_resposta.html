@@ -1,0 +1,77 @@
+
+ 
+<form ng-submit="submitForm()" name="formMail" class="form-horizontal">
+    <div class="form-horizontal"> 
+     <div class="row">
+         <div class="form-group"> <div class="col-sm-3 control-label"></div>
+              <div class="col-sm-6">   
+                <div class="form-group" ng-repeat="pergunta in perguntas">
+ 
+                   <div ng-if="!pergunta.tipoPergunta" class="row-fluid">
+                       <br />
+                       <span class="panel-title">
+                           <label>{{pergunta.descricaoPergunta}}</label> 
+                       </span>  
+                        <input class="form-control" type="text" ng-model="pergunta.respostaPergunta"
+                               placeholder="Entre com a resposta">
+                        <br />
+                    </div>
+                    
+                    
+                   <div ng-if="pergunta.tipoPergunta" >
+ 
+                       <span class="panel-title">
+                           <label>{{pergunta.descricaoPergunta}}</label> 
+                       </span>   
+                    <div class="row-fluid"> 
+                        
+                       <div class="checkbox">
+                            <label>  
+                                 <input type="checkbox" ng-model="pergunta.alternativa1"> 
+                                 {{pergunta.descricaoAlternativa1}}
+                            </label>
+                        </div>
+                        
+                        <div class="checkbox">
+                            <label> 
+                                <input type="checkbox" ng-model="pergunta.alternativa2">
+                                {{pergunta.descricaoAlternativa2}}
+                            </label>  
+                       </div>   
+                       
+                      <div class="checkbox">      
+                            <label>
+                                <input type="checkbox" ng-model="pergunta.alternativa3">
+                               {{pergunta.descricaoAlternativa3}}
+                            </label>
+                       </div>   
+                            
+                       <div class="checkbox">  
+                            <label> 
+                                <input type="checkbox" ng-model="pergunta.alternativa4">
+                                {{pergunta.descricaoAlternativa4}}
+                            </label>  
+                        </div>     
+                        <div class="checkbox">   
+                            <label>
+                                <input type="checkbox" ng-model="pergunta.alternativa5">
+                                {{pergunta.descricaoAlternativa5}}
+                            </label>  
+                       </div>   
+                    </div>  
+                   </div>  
+                 </div>  
+              </div>               
+            </div>
+         </div>   
+       </div>         
+
+  <div class="row" style="margin-bottom:20px">
+      <div class="form-actions"> 
+
+          <input type="submit" value="Concluir Questionário" style="margin:10px;"
+                 class="btn btn-primary btn-sm"> 
+
+      </div>
+  </div>
+</form>   

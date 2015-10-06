@@ -1,0 +1,32 @@
+<!DOCTYPE html> 
+<html lang="en">
+  <head>  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responder Questionário</title>  
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script> 
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
+     <script src="http://localhost:8084/questionario/resources/js/bootstrap-3.3.5.min.js"></script>   
+     <script src="http://localhost:8084/questionario/resources/angular/service/service-generic.js"></script>  
+     <script src="http://localhost:8084/questionario/resources/angular/controller/responde.js"></script>
+ 
+     <link href="http://localhost:8084/questionario/resources/css/bootstrap-3.3.5.min.css" rel="stylesheet"> 
+ 
+  </head>
+  
+  <body ng-app="RespondeApp" class="ng-cloak"> 
+      <div class="container text-center jumbotron"> 
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                  <span class="lead">Responder Questionário</span>
+              </div>
+              <div class="formcontainer"> 
+                    <!-- url:   #q/param -->        
+                    <!-- Call Form Dynamic -->      
+                    <div ng-view></div>     
+                 </div>
+        </div> 
+       </div> <!--  End Div -->
+ 
+    </body>
+</html>

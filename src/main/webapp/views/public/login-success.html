@@ -1,0 +1,52 @@
+<!DOCTYPE html> 
+<html lang="en">
+    <head> 
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login Questionário</title>    
+        <script src="http://localhost:8084/questionario/resources/js/bootstrap-3.3.5.min.js"></script> 
+        
+        <link href="http://localhost:8084/questionario/resources/css/bootstrap-3.3.5.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" />
+ 
+    </head> 
+ <body>   
+     <div class="container"> 
+         <div class="row">
+             <div class="col-md-4 col-md-offset-4"><br /><br />
+                 <div class="panel panel-default">
+                     <div class="panel-heading text-center">
+                         <h3 class="panel-title">Sistema Questionário</h3>
+                     </div>
+                     <div class="panel-body"> 
+                             <form action="http://localhost:8084/questionario/login" 
+                                   method="post" class="form-horizontal" >
+                             <fieldset>  
+                                <div class="input-group input-sm">
+                                        <label class="input-group-addon" for="username">
+                                            <i class="fa fa-user"></i></label>
+                                        <input type="text" class="form-control" id="username" name="ssoId" 
+                                               placeholder="Enter Username" required>
+                                </div>
+ 
+                            <div class="input-group input-sm">
+                                    <label class="input-group-addon" for="password">
+                                    <i class="fa fa-lock"></i></label> 
+                                    <input type="password" class="form-control" id="password" name="password" 
+                                           placeholder="Enter Password" required>
+                            </div>
+ 
+                            <br />
+                            <div class="form-actions">
+                                    <input type="submit"
+                                           class="btn btn-block btn-primary btn-default" value="Log in">
+                            </div>  
+                             </fieldset>
+                         </form>
+                     </div>
+                 </div>
+             </div>
+         </div>
+        </div>    
+ </body>
+</html>

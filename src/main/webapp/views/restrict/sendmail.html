@@ -1,0 +1,66 @@
+<!DOCTYPE html> 
+<html lang="en">
+  <head>  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar Email Questionário</title>   
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script> 
+     <script src="http://localhost:8084/questionario/resources/js/bootstrap-3.3.5.min.js"></script> 
+      <script src="http://localhost:8084/questionario/resources/angular/service/service-generic.js"></script>
+      <script src="http://localhost:8084/questionario/resources/angular/controller/sendmail.js"></script> 
+      
+     <link href="http://localhost:8084/questionario/resources/css/bootstrap-3.3.5.min.css" rel="stylesheet">  
+  </head>
+  
+    <body ng-app="QuestionarioApp" class="ng-cloak"> 
+        <div ng-include="'http://localhost:8084/questionario/views/template/menu.html'"></div>   
+        
+  <div class="container text-center jumbotron" ng-controller="ControllerSendMail as ctrl"> 
+      <div class="panel panel-default" style="margin-top: 30px">
+          <div class="panel-heading">
+              <span class="lead">Enviar Questionário para Email</span></div>
+          <div class="formcontainer">
+
+        <form ng-submit="sendEmail()" name="formMail" class="form-horizontal">
+     
+            <div class="form-horizontal" style="margin-top: 20px;"> 
+                    <div class="row">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Meus Questionários</label>
+                                <div class="col-sm-6">  
+                                <select ng-model="selectedQuestion.idQuestionario" class="form-control"
+                                        ng-options="questionario.idQuestionario as questionario.tituloQuestionario
+                                                    for questionario in questions">   
+                                </select> 
+                            </div>               
+                        </div>
+                    </div>   
+                   </div>    
+            
+                 <div class="form-horizontal" style="margin-top: 20px;"> 
+                    <div class="row">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Email do Destinatário</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="emaildestinatario" 
+                                       class="form-control" 
+                                       placeholder="Entre com o email do destinatário"/>
+                            </div>
+                        </div>
+                    </div>   
+                   </div> 
+                    
+          <div class="row" style="margin-bottom:20px">
+              <div class="form-actions"> 
+                  
+                  <input type="submit" value="Enviar" style="margin:10px;"
+                         class="btn btn-primary btn-sm"> 
+                   
+                </div>
+            </div>
+          </form>   
+        </div>
+      </div>
+     </div> <!--  End Div -->  
+    </body>
+</html>
