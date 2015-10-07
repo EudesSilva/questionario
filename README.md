@@ -4,6 +4,9 @@
 BANCO:
 O banco usado é o MYSQL.
 
+Na pasta resource faça a configuração de conexão ao banco 
+no arquivo (application.properties)
+
 Primeiro deve ser criado um schema no banco e depois
 configurados os dados nas seguintes classes.
 
