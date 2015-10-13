@@ -1,5 +1,6 @@
 package br.com.tool;
 
+import br.com.questionario.model.AuthorityType;
 import br.com.questionario.model.Destinatario;
 import br.com.questionario.model.Gabarito;
 import br.com.questionario.model.Pergunta;
@@ -32,7 +33,7 @@ public class HibernateDDLGenerator {
     public static void main(String[] args) { 
         
         new HibernateDDLGenerator().execute( MYSQL, Resposta.class, Gabarito.class,
-                Destinatario.class, Pergunta.class, Questionario.class, Usuario.class );
+                Destinatario.class, Pergunta.class, Questionario.class, Usuario.class, AuthorityType.class );
     }
  
  
@@ -55,7 +56,7 @@ public class HibernateDDLGenerator {
 	    configuration.addAnnotatedClass(entityClass);
 	 }
 	SchemaExport schemaExport = new SchemaExport(configuration);
-	schemaExport.setDelimiter(";");
+	//schemaExport.setDelimiter(";");
        // schemaExport.setOutputFile(String.format("%s_%s.%s ", new Object[] {"ddl",className.toLowerCase(), "sql" }));
         
 	boolean consolePrint = true;

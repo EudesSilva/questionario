@@ -15,6 +15,8 @@
         
        <springframework.version>4.1.6.RELEASE</springframework.version>
        <springsecurity.version>4.0.2.RELEASE</springsecurity.version>
+       <springbootweb.version>1.2.6.RELEASE</springbootweb.version>
+       
        <hibernate.version>4.3.6.Final</hibernate.version>
        <mysql.version>5.1.31</mysql.version>
        <jackson.version>2.6.0</jackson.version>
@@ -67,6 +69,27 @@
                 <artifactId>spring-security-config</artifactId>
                 <version>${springsecurity.version}</version>
         </dependency>
+
+        <!-- Spring Boot --> 
+        <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${springbootweb.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+             <version>${springbootweb.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-security</artifactId>
+                 <version>${springbootweb.version}</version>
+        </dependency>
+
+
+ 
 
         <!-- Hibernate -->
         <dependency>
@@ -128,9 +151,14 @@
                 <artifactId>jstl</artifactId>
                 <version>1.2</version>
         </dependency>
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version> 
+            <scope>provided</scope>
+        </dependency>
 
-
-       <!-- Logger Log4J
+       <!-- Logger Log4J -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
@@ -147,7 +175,7 @@
             <version>2.4</version>
             <scope>runtime</scope>
         </dependency>
-        -->
+        
         <!-- Logger SLF4J 
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -180,7 +208,13 @@
                 <artifactId>mail</artifactId>
                 <version>1.4.7</version>
         </dependency>
-        
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>4.2.1.RELEASE</version>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>
 
     </dependencies>
 
