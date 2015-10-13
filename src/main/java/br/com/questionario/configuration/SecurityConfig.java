@@ -27,42 +27,37 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity 
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     
-    // @Autowired
-    //private DataSource dataSource;
  
-    @Autowired
-    public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
-
-        auth.inMemoryAuthentication().withUser("admin").password("123").roles("ADMIN");
-        auth.inMemoryAuthentication().withUser("user").password("123").roles("USER");
-        auth.inMemoryAuthentication().withUser("dba").password("123").roles("ADMIN","DBA"); 
-        
-         //auth.jdbcAuthentication()
-         //    .dataSource(dataSource)
-	 //    .withDefaultSchema()
-	 //    .withUser("user").password("password").roles("USER");
+    @Autowired 
+    CustomUserDetailsService customDetailsService;
+  
+ 
+ 
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception { 
+        auth.userDetailsService(customDetailsService); 
     }
-    
-    
-    
-    
+ 
+        
        
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-           ///http.authorizeRequests().antMatchers("/**").permitAll().and().csrf().disable();
-	http.authorizeRequests()//.antMatchers("/resources/**").not().authenticated()
-            .antMatchers("/resources/**", "/views/public/**").permitAll()                
-            .antMatchers("/views/restrict/**").hasRole("ADMIN")                                                
+     
+	http.authorizeRequests() 
+            .antMatchers("/resources/**", "/views/public/**").permitAll()
+            .antMatchers("/views/restrict/**").hasRole("ADMIN") 
             .and() 
-	    .formLogin().loginPage("/login").defaultSuccessUrl("/views/restrict/home.html")
-            .usernameParameter("ssoId").passwordParameter("password")
-            //.failureUrl("/views/public/login.html")
+	    .formLogin().loginPage("/login") 
+            .usernameParameter("ssoId").passwordParameter("password") 
+            .failureUrl("/views/public/login.html/#/!/?error_login=true") 
+            .successHandler( new CustomAuthSuccessHandler() )    // defaultSuccessUrl
             .and()
-            .logout().logoutUrl("/logout").logoutSuccessUrl("/views/public/login-success.html").permitAll()
-//.logoutUrl("/views/public/login.html")
+            .logout().logoutUrl("/logout")
+            .logoutSuccessUrl("/views/public/login.html/#/!/?logoutOk=true").permitAll()
             .invalidateHttpSession(true)
             .deleteCookies("JSESSIONID").permitAll() 
-            .and().csrf().disable()
+            .and().csrf().disable()  // CSRF disable 
+            //.anyRequest() .authenticated().and().addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class);
             .exceptionHandling().accessDeniedPage("/accessdenied");
             
             
@@ -72,45 +67,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // csrf() // https://en.wikipedia.org/wiki/Cross-site_request_forgery
         //http://docs.spring.io/spring-security/site/docs/4.0.2.RELEASE/reference/htmlsingle/#jc-hello-wsca
         
-        
-        
-        
-        
-//		http 
-//                .formLogin().loginPage("/public/login.jsp")
-//                //.loginPage("/public/login")
-//               // .usernameParameter("j_username")
-//                //.passwordParameter("j_password")
-//                //.loginPage("/public/login.jsp")
-//                .failureUrl("/login?error")
-//                .loginProcessingUrl("/restrict/welcome.jsp")
-//                //.defaultSuccessUrl("/restrict/welcome.jsp")
-//                .and()  
-//                .logout().invalidateHttpSession(true)
-//                 .deleteCookies("JSESSIONID").permitAll()
-//                .and()
-//                .authorizeRequests()
-//                .antMatchers("/resources/**").permitAll()
-//                .antMatchers("/public/**").permitAll()
-//                .anyRequest().authenticated()
-//.antMatchers(HttpMethod.POST, "/employees").hasRole("ADMIN")
-//                .antMatchers("/restrict/**").access("hasRole('ROLE_ADMIN')")
-//		.antMatchers("/app/admin/**").access("hasRole('ROLE_ADMIN')")
-//                //.antMatchers("/app/admin/**").hasRole("ADMIN")
-//		.antMatchers("/app/user/**").access("hasRole('ROLE_USER')");
-	}
-        
  
-
-   
-//    @Configuration
-//    protected static class AuthenticationConfiguration extends GlobalAuthenticationConfigurerAdapter {
-//            @Override
-//            public void init(AuthenticationManagerBuilder auth) throws Exception {
-//                
-//                  auth.inMemoryAuthentication().withUser("user").password("123").roles("USER");
-//                  auth.inMemoryAuthentication().withUser("admin").password("admin").roles("ADMIN");
-//
-//            }
-//    } 
+	}    
+  
 }   
