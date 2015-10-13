@@ -1,4 +1,4 @@
-(function(angular) {
+(function() {
 
    //App =  angular.module('QuestionarioApp', ['ServiceGenericApp']);
  
@@ -21,6 +21,22 @@
     $error: É um hash que contem todos inválidos
  */
  
+/*
+https://spring.io/blog/2015/01/12/the-login-page-angular-js-and-spring-security-part-ii
+.run(['$http', '$cookies', function ($http, $cookies) {
+    $http.defaults.transformResponse.unshift(function (data, headers) {
+        var csrfToken = $cookies['XSRF-TOKEN'];
+
+        if (!!csrfToken) {
+            $http.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken;
+        }
+
+        return data;
+    });
+}]);    
+    
+*/
+
 
  
-})(window.angular);
+})();

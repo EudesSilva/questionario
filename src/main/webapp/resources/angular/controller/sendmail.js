@@ -2,14 +2,15 @@
     'use strict';
     
     
-  var App =  angular.module('QuestionarioApp', ['ServiceGenericApp']); 
+  var App =  angular.module('SendMailApp', ['ServiceGenericApp']); 
     
-  App.controller('ControllerSendMail', ['$scope','$http','ServiceGeneric', function($scope,$http,ServiceGeneric) {
-        
-    var subPath = 'sendmail/';  // warning slashes!   
-    //var serverURL = 'http://localhost:8084/questionario/';
-    ServiceGeneric.configURL( subPath ); // configure path generic service
+  App.controller('ControllerSendMail', ['$scope','ServiceGeneric', function($scope,ServiceGeneric) {
       
+          
+    ServiceGeneric.configURLReset();
+    var subPath = 'sendmail/';  // warning slashes!    
+    ServiceGeneric.configURL( subPath ); // configure path generic service
+     
 
     $scope.questions    = [];
     $scope.selectedQuestion = null;
@@ -20,6 +21,7 @@
           ServiceGeneric.fetchAll( idUser )
               .then(
                   function(d) {
+                           console.log("questions: ", JSON.stringify(d.data));
                             $scope.questions = d.data;
                             $scope.selectedQuestion = angular.copy($scope.questions[0]);
                        },

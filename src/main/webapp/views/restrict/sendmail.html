@@ -1,21 +1,7 @@
-<!DOCTYPE html> 
-<html lang="en">
-  <head>  
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enviar Email Questionário</title>   
-     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script> 
-     <script src="http://localhost:8084/questionario/resources/js/bootstrap-3.3.5.min.js"></script> 
-      <script src="http://localhost:8084/questionario/resources/angular/service/service-generic.js"></script>
-      <script src="http://localhost:8084/questionario/resources/angular/controller/sendmail.js"></script> 
+ 
+  <div ng-app="SendMailApp" ng-controller="ControllerSendMail as ctrl"> 
       
-     <link href="http://localhost:8084/questionario/resources/css/bootstrap-3.3.5.min.css" rel="stylesheet">  
-  </head>
-  
-    <body ng-app="QuestionarioApp" class="ng-cloak"> 
-        <div ng-include="'http://localhost:8084/questionario/views/template/menu.html'"></div>   
-        
-  <div class="container text-center jumbotron" ng-controller="ControllerSendMail as ctrl"> 
+  <div class="container text-center jumbotron"> 
       <div class="panel panel-default" style="margin-top: 30px">
           <div class="panel-heading">
               <span class="lead">Enviar Questionário para Email</span></div>
@@ -62,5 +48,4 @@
         </div>
       </div>
      </div> <!--  End Div -->  
-    </body>
-</html>
+  </div>

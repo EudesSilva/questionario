@@ -5,7 +5,8 @@
  
 App.controller('ControllerQuestionario', ['$scope','ServiceGeneric','$timeout',
                                          function($scope, ServiceGeneric, $timeout) {
-        
+   
+   ServiceGeneric.configURLReset();                                          
    var self = this;
    var subPath = 'question/';  // warning slashes!
    ServiceGeneric.configURL( subPath ); // configure path generic service               
@@ -132,9 +133,9 @@ App.controller('ControllerQuestionario', ['$scope','ServiceGeneric','$timeout',
       console.log('SUBMIT :: IS OK ' , $scope.pergunta.questionario.idQuestionario);
  
       $timeout(function() {   // problems action time, request in server
-         //$scope.pergunta.descricaoPergunta ="";
+          $scope.pergunta.descricaoPergunta ="";
           cleanSampleQuestion( false, true );
-       }, 500); 
+       }, 1000); 
  
     };
           

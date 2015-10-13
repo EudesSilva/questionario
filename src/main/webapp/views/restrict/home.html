@@ -4,14 +4,35 @@
         <title>Questionário</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  
+        <!-- Reusing , Evict news Calls in scripts files, css files and other files -->
+        <!-- Reusing -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script> 
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
         
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> 
+        
+        <script src="http://localhost:8084/questionario/resources/angular/service/service-generic.js"></script>              
+        <script src="http://localhost:8084/questionario/resources/angular/controller/questionario.js"></script> 
+        <script src="http://localhost:8084/questionario/resources/angular/controller/sendmail.js"></script>              
+        <script src="http://localhost:8084/questionario/resources/angular/rota/rota.js"></script>  
+
+   
+        <link href="http://localhost:8084/questionario/resources/css/bootstrap-3.3.5.min.css" rel="stylesheet">  
+    
     </head>
 
-    <body ng-app> 
+    <body> 
+        <div ng-app="RotaApp"> 
         
-       <div ng-include="'http://localhost:8084/questionario/views/template/menu.html'"></div>
-        
+             <div ng-include="'../template/menu.html'"></div>
+         
+             <div ng-view=""> 
+             </div>
+            
+      </div> 
     </body>
+    
+       
+   
+
 </html>
