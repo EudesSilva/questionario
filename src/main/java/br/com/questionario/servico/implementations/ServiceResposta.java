@@ -25,7 +25,7 @@ public class ServiceResposta implements IServiceResposta{
    private RespostaDAO respostaDAO;
     
  
- //  @Transactional(readOnly = false, propagation = Propagation.REQUIRED, isolation = Isolation.DEFAULT )
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRED, isolation = Isolation.DEFAULT )
    public void registrarRespostas(List<Resposta> respostas){
       respostaDAO.registrarRespostas(respostas);
    } 

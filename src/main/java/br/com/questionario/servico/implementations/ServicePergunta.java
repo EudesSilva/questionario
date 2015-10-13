@@ -26,12 +26,12 @@ public class ServicePergunta implements IServicePergunta{
         return perguntaDAO.findByIdPergunta(idPergunta);
     }
     
-   // @Transactional(readOnly = false, propagation = Propagation.REQUIRED, isolation = Isolation.DEFAULT )
+     @Transactional(readOnly = false, propagation = Propagation.REQUIRED, isolation = Isolation.DEFAULT )
     public void deletePergunta(Pergunta pergunta){
         perguntaDAO.deletePergunta(pergunta);
     }
     
-   // @Transactional(readOnly = false, propagation = Propagation.REQUIRED, isolation = Isolation.DEFAULT )
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRED, isolation = Isolation.DEFAULT )
     public void savePergunta(Pergunta pergunta) {
         perguntaDAO.saveOrUpdate(pergunta);
     }
