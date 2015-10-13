@@ -1,34 +1,10 @@
 (function () {
     'use strict';
+  
+  var RespondeQues = angular.module('RespondeApp', ['ngRoute','ServiceGenericApp']);   
  
-   
-  var RespondeQues = angular.module('RespondeApp', ['ngRoute',  'ServiceGenericApp']);
-  RespondeQues.config(['$routeProvider',  function($routeProvider) {
-        $routeProvider.
-                when('/q/:question/id/:camarada/e/:email', {  
-                controller: 'RespostaController',
-                controllerAS:'ctrl',
-                templateUrl: '../template/questionario_resposta.html',
-                    resolve: {
-                      // I will cause a 1 second delay
-                      delay: function($q, $timeout) {
-                        var delay = $q.defer();
-                        $timeout(delay.resolve, 500);
-                        return delay.promise; 
-                         }
-                       } 
-                }).when('/resp_ok', {
-                    templateUrl: '../template/jarespondido.html' 
-                }).otherwise({
-                        redirectTo: "/"
-                });
-                 
-    }]);
-
-         
- 
-  RespondeQues.controller('RespostaController', ['$scope','ServiceGeneric','$routeParams','$location','$http',
-                                function($scope, ServiceGeneric,  $routeParams, $location,$http ) {
+  RespondeQues.controller('RespostaController', ['$scope','ServiceGeneric','$routeParams','$location',
+                                function($scope, ServiceGeneric,  $routeParams, $location  ) {
  
     var self = this;
     var subPath = 'responde/';  // warning slashes!    

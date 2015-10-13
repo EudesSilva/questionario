@@ -1,15 +1,19 @@
 package br.com.questionario.util;
 
+import br.com.questionario.configuration.SendMailConfig;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.stereotype.Component;
 /**
  *
  * @author EudesSilva
  * 
  */
  
+@Component
 public class SendMailStart {
 
     
@@ -24,13 +28,19 @@ public class SendMailStart {
     addBcc(): Add bcc recipient.  
  */   
     
-    private final String remetente = "remetente__@gmail.com";
+    private final String remetente = "remetente___@gmail.com";
  
+    
+    @Autowired
+    private JavaMailSenderImpl javaMail;
+    
+    @Autowired
+    private SendMailConfig config;
     
     public boolean sendMail(String destinatario, String assunto, String msgHtmlText) {
         try { 
-            SendMailConfig config = new SendMailConfig();
-            JavaMailSenderImpl javaMail = config.javaMailSenderImpl();
+             
+            javaMail = config.javaMailSenderImpl();
             MimeMessage mimeMessage = javaMail.createMimeMessage();
             MimeMessageHelper msg = new MimeMessageHelper(mimeMessage);
             msg.setFrom(remetente);  
@@ -38,10 +48,10 @@ public class SendMailStart {
             msg.setSubject(assunto);
             msg.setText(msgHtmlText, true); 
           //mailMsg.setTo(String[]); 
-            
+ 
             javaMail.send(mimeMessage);
             
-            System.out.println("--- Email Enviado::::::::---");
+            System.out.println("---::::::::: Email Enviado::::::::---");
             
         } catch (MessagingException ex) { 
             ex.printStackTrace();
