@@ -4,11 +4,10 @@ package br.com.questionario.repository.implementations;
 import br.com.questionario.dao.generic.AbstractDAO;
 import br.com.questionario.model.Pergunta;
 import br.com.questionario.repository.interfaces.IPerguntaRepository;
+import br.com.questionario.util.MyLogger;
 import java.util.List;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 /**
  *
@@ -20,8 +19,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class PerguntaDAO extends AbstractDAO<Long, Pergunta> implements IPerguntaRepository{
 
-    Logger logger = LoggerFactory.getLogger(PerguntaDAO.class);
-     
+ 
+    private final MyLogger LOG = MyLogger.configLog(PerguntaDAO.class);
      
      
    public void salvarPergunta(Pergunta pergunta) {
@@ -34,8 +33,8 @@ public class PerguntaDAO extends AbstractDAO<Long, Pergunta> implements IPergunt
     List<Pergunta> perguntas = getListCriteria(criteria); 
  
        for (Pergunta p : perguntas) {
-           logger.info("Pergunta:::id"+p.getIdPergunta() );  
-           logger.info("Pergunta:::Descricao"+p.getDescricaoPergunta() );  
+           LOG.myLog("Pergunta:::id"+p.getIdPergunta() );  
+           LOG.myLog("Pergunta:::Descricao"+p.getDescricaoPergunta() );  
        }
     
     return perguntas;
