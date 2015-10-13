@@ -32,7 +32,7 @@ public class HibernateConfiguration {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
         sessionFactory.setPackagesToScan(new String[] { "br.com.questionario.model" });
-        sessionFactory.setHibernateProperties(hibernateProperties());
+        sessionFactory.setHibernateProperties(hibernateProperties()); 
         return sessionFactory;
      }
 	

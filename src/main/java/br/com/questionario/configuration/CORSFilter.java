@@ -18,13 +18,22 @@ import javax.servlet.http.HttpServletResponse;
 
 public class CORSFilter implements Filter {
     
+    
+    
+    
     // Ref
     //http://www.w3.org/TR/cors/
     //https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS
     //http://www.html5rocks.com/en/tutorials/cors/
     
+    // CsrfToken
+    //http://docs.spring.io/spring-security/site/docs/3.2.x/reference/htmlsingle/#csrf-include-csrf-token
+    //http://spring.io/blog/2013/08/21/spring-security-3-2-0-rc1-highlights-csrf-protection
     
-	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
+    
+    
+    
+	public void doFilter(ServletRequest request, ServletResponse res, FilterChain filterChain) throws IOException, ServletException {
             System.out.println("Filtering on...........................................................");
             HttpServletResponse response = (HttpServletResponse) res;
             response.setHeader("Access-Control-Allow-Origin", "*"); // *(allow from all servers) OR http://example.com/
@@ -32,7 +41,9 @@ public class CORSFilter implements Filter {
             response.setHeader("Access-Control-Max-Age", "3600");
             response.setHeader("Access-Control-Allow-Headers", "x-requested-with,Content-Type");
             //response.setHeader("Access-Control-Allow-Headers", "x-requested-with");
-            chain.doFilter(req, res);
+            
+ 
+            filterChain.doFilter(request, res);
 	}
 
 	public void init(FilterConfig filterConfig) {}
