@@ -27,6 +27,8 @@ public interface IAbstractDAO<T, PK extends Serializable> {
     
     public void update(T entity);
     
+    public void save(T entity);
+    
     public void saveOrUpdate(T entity);
     
     public  T getBean(Serializable codigo);

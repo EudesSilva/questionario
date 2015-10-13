@@ -56,6 +56,11 @@ public abstract class AbstractDAO< PK extends Serializable, T > implements IAbst
     } 
     
     @Override
+    public void save(T entity){
+        getSession().save(entity);
+    }   
+    
+    @Override
     public void saveOrUpdate(T entity){
         getSession().saveOrUpdate(entity);
     }    
