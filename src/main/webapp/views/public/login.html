@@ -4,15 +4,28 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Login Questionário</title>    
-        <script src="http://localhost:8084/questionario/resources/js/bootstrap-3.3.5.min.js"></script> 
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script> 
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>  
+        <script src="http://localhost:8084/questionario/resources/angular/controller/login.js"></script>
         
         <link href="http://localhost:8084/questionario/resources/css/bootstrap-3.3.5.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" />
- 
     </head> 
- <body>   
-     <div class="container"> 
+    
+    
+    
+    <body ng-app="LoginApp" ng-controller="ControllerLogin as ctrl">   
+        <div class="container"> 
+  
          <div class="row">
+             
+            <div ng-show="showerror" class="text-center alert alert-danger"> 
+                     <span>Usuário ou Senha inválidos</span> 
+            </div> 
+            <div ng-show="showlogout" class="text-center alert alert-info"> 
+                     <span>Desconectado com Sucesso</span> 
+            </div> 
+             
              <div class="col-md-4 col-md-offset-4"><br /><br />
                  <div class="panel panel-default">
                      <div class="panel-heading text-center">
@@ -48,5 +61,7 @@
              </div>
          </div>
         </div>    
+        
+            
  </body>
 </html>
