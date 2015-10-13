@@ -58,6 +58,7 @@ public class Pergunta implements Serializable {
     private String descricaoAlternativa4;
     @Column(name = "descricaoAlternativa5",length = 80)
     private String descricaoAlternativa5; 
+    
     @Transient
     private String respostaPergunta;  
      //@JsonBackReference
@@ -207,13 +208,6 @@ public class Pergunta implements Serializable {
         this.tipoPergunta = tipoPergunta;
     }
 
-    public Questionario getIdQuestionario() {
-        return questionario;
-    }
-
-    public void setIdQuestionario(Questionario idQuestionario) {
-        this.questionario = idQuestionario;
-    }
 
     public Set<Gabarito> getGabaritoList() {
         return gabaritoList;

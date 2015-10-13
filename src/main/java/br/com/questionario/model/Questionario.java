@@ -25,15 +25,14 @@ import javax.persistence.Table;
  * @author Eudes Silva
  */
 @Entity
-@Table(name = "questionario") 
-//@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="@idQuestionario")
+@Table(name = "questionario")  
 public class Questionario implements Serializable {
     
     private static final long serialVersionUID = 1L;
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
+  //  @Basic(optional = false)
     @Column(name = "idQuestionario")
     private Integer idQuestionario;
     
