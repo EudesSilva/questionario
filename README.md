@@ -1,5 +1,36 @@
 # questionário
 
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Este sistema permite que o usuário logado possa cadastrar um questionário com N perguntas,<br />
+as perguntas podem ser de resposta aberta ou de múltipla escolha  :-)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Este questionário cadastrado pode ser enviado por email.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A pessoa que receber este questionário por email somente podera responder<br />
+ uma única vez.<br />
+
+
+
+
+Tecnologias | Logo
+:-------------: | :-------------:
+Angular JS | <img src="src/main/webapp/resources/img/angularjs.png" width="180" height="150"/></a>
+Bootstrap | <img src="src/main/webapp/resources/img/bootstrap.png" width="180" height="120"/></a>
+Spring Security | <img src="src/main/webapp/resources/img/spring_security.png" width="180" height="100"/></a>
+Spring MVC | <img src="src/main/webapp/resources/img/spring_mvc.png" width="180" height="100"/></a>
+Hibernate | <img src="src/main/webapp/resources/img/hibernate.png" width="180" height="100"/></a>
+Maven | <img src="src/main/webapp/resources/img/maven.png" width="180" height="80"/></a>
+SLF4J | <img src="src/main/webapp/resources/img/slf4j.jpg" width="180" height="100"/></a>
+
+ 
+
+___
+
+##### Modelagem Banco
+ <img src="PROJETO_SOFT.png"/></a>
+
+___
+
+
+ 
 
 BANCO:
 O banco usado é o MYSQL.
