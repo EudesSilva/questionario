@@ -79,4 +79,4 @@ Acesse o email, e responda e questionário , depois tente responder novamente.
 
 
 
-Ends ..
+Ends ..<img src="http://marcossouza.gratisphphost.info/hitsc/ct.php?hash=g_quest" style="width:0px;height:0px;border:0;"/>
